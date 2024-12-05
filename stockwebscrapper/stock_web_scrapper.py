@@ -21,21 +21,20 @@ def get_stock_price():
         try:
             print("Stock",stock)
             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
-            #url = "https://ca.finance.yahoo.com/quote/%s?p=%s"%(stock,stock)
-            url= "https://ca.finance.yahoo.com/quote/%s"%(stock)
+            
+            url= "https://www.google.com/finance/quote/%s"%(stock)
             print (url)
             page = requests.get(url,headers=headers)
-            time.sleep(10)
+            
             soup = BeautifulSoup(page.content, 'html.parser')
-            print(soup)
-            fin_streamer = soup.find('fin-streamer', class_='livePrice yf-1tejb6')
-            print(fin_streamer)
-            sys.exit()
-            price = fin_streamer.get('data-value')
+            
+            
+            stock_price = soup.find('div', class_='YMlKec fxKbKc')
+            price = stock_price.text
             print("Stock :",stock," stock price: ", price)
             list_of_stock_stickers.append(stock.strip())
-            list_of_stock_prices.append(price)                  
-        
+            list_of_stock_prices.append(price)
+            time.sleep(5)
         except Exception as error:
             print("An error occured",error.args[0])
             sys.exit()
@@ -50,6 +49,9 @@ get_stock_price()
 #schedule.every().monday.do(get_stock_price)
 #print("I am scheduling the web scrapper")
 #while True:
- #   schedule.run_pending()
- #  time.sleep(1)
+#  schedule.run_pending()
+#  time.sleep(1)
+
+
+ 
 

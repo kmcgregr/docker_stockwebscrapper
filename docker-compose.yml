@@ -1,6 +1,6 @@
 version: '3'
 services:
-  moneypoint:
+  stock_web_scrapper:
     image: localhost:5000/docker_stockwebscrapper_v5
     restart: unless-stopped
     volumes:
