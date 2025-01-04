@@ -1,4 +1,5 @@
 FROM python:3
+RUN python -m pip install --upgrade pip
 RUN pip install bs4
 RUN pip install requests
 RUN pip install pandas
