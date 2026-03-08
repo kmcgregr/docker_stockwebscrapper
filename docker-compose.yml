@@ -1,7 +1,8 @@
 version: '3'
 services:
   stock_web_scrapper:
-    image: localhost:5000/docker_stockwebscrapper_v2
+    build: .
+    container_name: stock_web_scrapper
     restart: unless-stopped
     volumes:
       - ./stockwebscrapper:/usr/src/app

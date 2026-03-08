@@ -1,12 +1,7 @@
-FROM python:3
-RUN python -m pip install --upgrade pip
-RUN pip install bs4
-RUN pip install requests
-RUN pip install pandas
-RUN pip install numpy
-RUN pip install openpyxl
-RUN pip install schedule
+FROM python:3.11-slim
+RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /usr/src/app
 
-CMD ["python", "/usr/src/app/stock_web_scrapper.py"]
+CMD ["python", "-u", "stock_web_scrapper.py"]
+HEALTHCHECK CMD curl -f http://localhost:80/health || exit 1
