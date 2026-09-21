@@ -1,77 +1,48 @@
-stock_web_scrapper  | 2026-09-21 13:38:56,418 INFO:Starting scheduled scraper
 stock_web_scrapper  | Traceback (most recent call last):
 stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
 stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
+stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 7, in <module>
+stock_web_scrapper  |     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+stock_web_scrapper  |     ^^^^^^^
+stock_web_scrapper  | NameError: name 'logging' is not defined
 stock_web_scrapper exited with code 1 (restarting)
-stock_web_scrapper  | 2026-09-21 13:38:58,351 INFO:Starting scheduled scraper
 stock_web_scrapper  | Traceback (most recent call last):
 stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
 stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
+stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 7, in <module>
+stock_web_scrapper  |     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+stock_web_scrapper  |     ^^^^^^^
+stock_web_scrapper  | NameError: name 'logging' is not defined
 stock_web_scrapper exited with code 1 (restarting)
-stock_web_scrapper  | 2026-09-21 13:39:00,133 INFO:Starting scheduled scraper
 stock_web_scrapper  | Traceback (most recent call last):
 stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
 stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
+stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 7, in <module>
+stock_web_scrapper  |     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+stock_web_scrapper  |     ^^^^^^^
+stock_web_scrapper  | NameError: name 'logging' is not defined
 stock_web_scrapper exited with code 1 (restarting)
-stock_web_scrapper  | 2026-09-21 13:39:01,782 INFO:Starting scheduled scraper
 stock_web_scrapper  | Traceback (most recent call last):
 stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
 stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
+stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 7, in <module>
+stock_web_scrapper  |     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+stock_web_scrapper  |     ^^^^^^^
+stock_web_scrapper  | NameError: name 'logging' is not defined
 stock_web_scrapper exited with code 1 (restarting)
-stock_web_scrapper  | 2026-09-21 13:39:03,704 INFO:Starting scheduled scraper
 stock_web_scrapper  | Traceback (most recent call last):
 stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
 stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
+stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 7, in <module>
+stock_web_scrapper  |     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+stock_web_scrapper  |     ^^^^^^^
+stock_web_scrapper  | NameError: name 'logging' is not defined
 stock_web_scrapper exited with code 1 (restarting)
-stock_web_scrapper  | 2026-09-21 13:39:06,409 INFO:Starting scheduled scraper
 stock_web_scrapper  | Traceback (most recent call last):
 stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
 stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
-stock_web_scrapper exited with code 1 (restarting)
-stock_web_scrapper  | 2026-09-21 13:39:10,813 INFO:Starting scheduled scraper
-stock_web_scrapper  | Traceback (most recent call last):
-stock_web_scrapper  |   File "<frozen runpy>", line 198, in _run_module_as_main
-stock_web_scrapper  |   File "<frozen runpy>", line 88, in _run_code
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 29, in <module>
-stock_web_scrapper  |     main()
-stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 25, in main
-stock_web_scrapper  |     schedule.run_pending()
-stock_web_scrapper  |     ^^^^^^^^
-stock_web_scrapper  | NameError: name 'schedule' is not defined
+stock_web_scrapper  |   File "/usr/src/app/src/main.py", line 7, in <module>
+stock_web_scrapper  |     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+stock_web_scrapper  |     ^^^^^^^
+stock_web_scrapper  | NameError: name 'logging' is not defined 
 stock_web_scrapper exited with code 1 (restarting)
