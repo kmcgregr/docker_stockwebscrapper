@@ -1,6 +1,6 @@
+# requirements for the scraper
 bs4
 requests
 pandas
-numpy
-openpyxl
 schedule
+openpyxl

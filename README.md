@@ -1,43 +1,67 @@
+# Minimal README for the new structure
+
 # Docker Stock Web Scraper
 
-This repository contains a simple Python script that scrapes the current price of a list of stock tickers from Google Finance and writes the results to an Excel file. The application runs inside a Docker container and can be scheduled to run at regular intervals.
+This repository scrapes current stock prices from Google Finance and stores the results in an Excel file and a Markdown table. The scraper is fully configurable via **`config.yaml`** and can run either a one‑off fetch or a continuous scheduler.
 
-## Prerequisites
-- Docker (≥ 19.03)
-- Docker Compose (optional)
+## Project layout
 
-## Local development
-```bash
-python -m pip install -r requirements.txt
-python stock_web_scrapper.py
+```
+docker_stockwebscrapper/
+├─ README.md
+├─ requirements.txt
+├─ config.yaml
+├─ Dockerfile
+├─ docker-compose.yml
+├─ src/
+│   ├─ __init__.py
+│   ├─ config.py
+│   ├─ data_loader.py
+│   ├─ scraper.py
+│   ├─ persistence.py
+│   ├─ scheduler.py
+│   └─ main.py
+├─ tests/
+└─ stockwebscrapper/
+    ├─ my_stocks.csv
+    └─ etf_and_stock_market_data.md
 ```
 
-## Docker
+## Running locally
+
 ```bash
-docker build -t stockwebscrapper .
-docker run --rm -v "$(pwd)/stockwebscrapper:/usr/src/app" stockwebscrapper
+# Install deps
+pip install -r requirements.txt
+# One‑off scrape
+python -m src.main run
+# Scheduled scraping (default 10 min + 17:00 daily + Monday weekly)
+python -m src.main schedule
 ```
 
-## Docker Compose
+## Docker / Docker‑Compose
+
+### Build and run
+
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
-The container mounts the `stockwebscrapper` directory so that `my_stocks.csv` and the generated `stock_prices.xlsx` are persisted on the host.
+The container mounts the `stockwebscrapper` directory, so both the input CSV and the generated output files (`stock_prices.xlsx` and `Stock_prices.md`) persist on the host.
 
 ## Configuration
-The script reads the list of tickers from `stockwebscrapper/my_stocks.csv`.  The default schedule is:
-- every 10 minutes
-- every day at 17:00
-- every Monday
 
-Feel free to change the schedule in `stock_web_scrapper.py`.
+Edit `config.yaml` to change URLs, selectors, header values, schedule timing, or output file names. The default settings already match what the original script used.
 
-## Testing
-Run tests with pytest:
-```bash
-pytest
+## Data format
+
+The Markdown table is written to **`Stock_prices.md`** in the same directory as the Excel file. It looks like:
+
+```
+| Stock | Price |
+|------|-------|
+| AAPL:NASDAQ | 175.32 |
 ```
 
 ## License
+
 MIT

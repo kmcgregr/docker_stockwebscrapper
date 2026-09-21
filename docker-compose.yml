@@ -1,9 +1,9 @@
+# docker-compose used for container run
 services:
   stock_web_scrapper:
     build: .
     container_name: stock_web_scrapper
     restart: unless-stopped
     volumes:
-      - ./stockwebscrapper:/usr/src/app
-    command: "python stock_web_scrapper.py"
+      - ./stockwebscrapper:/usr/src/app/stockwebscrapper
     tty: true
