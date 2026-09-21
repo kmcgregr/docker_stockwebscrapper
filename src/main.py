@@ -21,6 +21,7 @@ def main() -> None:
         job()
     else:
         logging.info('Starting scheduled scraper')
+        job()
         schedule_jobs()
         while True:
             schedule.run_pending()
