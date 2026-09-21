@@ -1,5 +1,6 @@
 import schedule
 import time
+import datetime
 import logging
 
 from .config import load_config
@@ -10,6 +11,12 @@ from .persistence import save_to_excel, save_to_markdown
 logger = logging.getLogger(__name__)
 
 def job() -> None:
+    # Only run during weekday business hours
+    now = datetime.datetime.now()
+    if now.weekday() >= 5:  # Saturday or Sunday
+        return
+    if not (datetime.time(9, 45) <= now.time() <= datetime.time(17, 0)):
+        return
     cfg = load_config()
     tickers = load_tickers('stockwebscrapper/my_stocks.csv')
     scraper = TickerScraper()
@@ -36,16 +43,8 @@ def job() -> None:
 
 
 def schedule_jobs() -> None:
-    cfg = load_config()
-    minutes = cfg['schedule'].get('minutes', 10)
-    daily_at = cfg['schedule'].get('daily_at')
-    weekly_day = cfg['schedule'].get('weekly_day')
-
-    schedule.every(minutes).minutes.do(job)
-    if daily_at:
-        schedule.every().day.at(daily_at).do(job)
-    if weekly_day:
-        schedule.every(weekly_day).do(job)
+    # Run every 10 minutes during weekday business hours
+    schedule.every(10).minutes.do(job)
 
 
 # expose for main
