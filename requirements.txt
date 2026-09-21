@@ -1,6 +1,5 @@
-# requirements for the scraper
-bs4
+PyYAML
 requests
+beautifulsoup4
 pandas
 schedule
-openpyxl
