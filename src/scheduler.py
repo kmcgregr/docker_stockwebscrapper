@@ -18,14 +18,17 @@ def job() -> None:
     if not (datetime.time(9, 45) <= now.time() <= datetime.time(17, 0)):
         return
     cfg = load_config()
+    logging.info('loading tickers')
     tickers = load_tickers('stockwebscrapper/my_stocks.csv')
     scraper = TickerScraper()
 
     results = []
     for ticker in tickers:
+       
         price = scraper.fetch_price(ticker)
         if price:
             results.append((ticker, price))
+            logging.info('Ticker %s: %s', ticker, price)
         # Polite rate limiting
         time.sleep(5)
     if not results:
