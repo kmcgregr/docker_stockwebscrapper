@@ -1,5 +1,7 @@
 import os
 import sys
+from pathlib import Path
+
 import requests
 import csv
 import pandas as pd
@@ -7,6 +9,12 @@ import schedule
 import time
 
 from bs4 import BeautifulSoup
+
+from markdown_exporter import export_to_markdown
+
+EXCEL_OUTPUT = Path("stock_prices.xlsx")
+PRICE_COLUMNS = ["price"]
+DATE_COLUMNS = ["captured_at"]
 
 def read_stock_file():
     with open('my_stocks.csv', 'r') as stock_data_file:
@@ -72,11 +80,23 @@ def get_stock_price():
     print("\nTickers:", list_of_stock_tickers)
     print("Prices: ", list_of_stock_prices)
 
-    data_t = {'stock': list_of_stock_tickers, 'price': list_of_stock_prices}
+    data_t = {
+        'stock': list_of_stock_tickers,
+        'price': list_of_stock_prices,
+        'captured_at': pd.Timestamp.now(),
+    }
     df = pd.DataFrame.from_dict(data_t)
 
-    df.to_excel("stock_prices.xlsx", index=False)
-    print("Saved to stock_prices.xlsx")
+    df.to_excel(EXCEL_OUTPUT, index=False)
+    print(f"Saved to {EXCEL_OUTPUT}")
+
+    markdown_output = export_to_markdown(
+        df,
+        EXCEL_OUTPUT.with_suffix(".md"),
+        float_columns=PRICE_COLUMNS,
+        date_columns=DATE_COLUMNS,
+    )
+    print(f"Saved to {markdown_output}")
 
 
 schedule.every(10).minutes.do(get_stock_price)

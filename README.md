@@ -1,6 +1,6 @@
 # Docker Stock Web Scraper
 
-This repository contains a simple Python script that scrapes the current price of a list of stock tickers from Google Finance and writes the results to an Excel file. The application runs inside a Docker container and can be scheduled to run at regular intervals.
+This repository contains a simple Python script that scrapes the current price of a list of stock tickers from Google Finance and writes the results to an Excel file and a Markdown file. The application runs inside a Docker container and can be scheduled to run at regular intervals.
 
 ## Prerequisites
 - Docker (≥ 19.03)
@@ -23,7 +23,14 @@ docker run --rm -v "$(pwd)/stockwebscrapper:/usr/src/app" stockwebscrapper
 docker-compose up --build
 ```
 
-The container mounts the `stockwebscrapper` directory so that `my_stocks.csv` and the generated `stock_prices.xlsx` are persisted on the host.
+The container mounts the `stockwebscrapper` directory so that `my_stocks.csv` and the generated `stock_prices.xlsx` and `stock_prices.md` are persisted on the host.
+
+## Output
+Each run writes two files to the working directory:
+- `stock_prices.xlsx` – the scraped tickers and prices.
+- `stock_prices.md` – the same data as a Markdown table, so prices are easy to read or embed in docs.
+
+In the Markdown file prices are written with two decimal places, timestamps use the ISO format (`YYYY-MM-DD`), and the file is overwritten on every run.
 
 ## Configuration
 The script reads the list of tickers from `stockwebscrapper/my_stocks.csv`.  The default schedule is:
