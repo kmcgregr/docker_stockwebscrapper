@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -61,9 +62,9 @@ def get_stock_price():
                 if old_element:
                     price = old_element.text.strip()
 
-            # Strip currency symbols
+            # Strip currency symbols and separators (CA$, US$, $, commas)
             if price:
-                price = price.replace('CA', '').strip()
+                price = re.sub(r'[^0-9.-]', '', price.replace(',', ''))
 
             if price:
                 print(f"Stock: {stock}  |  Price: {price}")

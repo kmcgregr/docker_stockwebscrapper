@@ -38,7 +38,8 @@ def _format_value(
 
     if column in float_columns:
         number = _as_float(value)
-        return "" if number is None else f"{number:.2f}"
+        if number is not None:
+            return f"{number:.2f}"
 
     return str(value)
 
